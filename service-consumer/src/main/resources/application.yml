@@ -1,0 +1,24 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: user-client
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://server1:7001/eureka/,http://server2:7002/eureka/
+logging:
+  level:
+    feign.service: DEBUG
+feign:
+  hystrix:
+    enabled: tru9001e
+  compression:
+    request:
+      mime-types: #可以被压缩的类型
+        - text/xml
+        - application/xml
+        - application/json
+      min-request-size: 2048  #超过2048字节压缩

@@ -1,0 +1,17 @@
+server:
+  port: 7002
+
+eureka:
+  server:
+      eviction-interval-timer-in-ms: 60000  #设置服务的清理间隔时间，单位是毫秒，默认是60*1000，即60秒
+      enable-self-preservation: false #关闭自我保护模式
+  instance:
+    hostname: server2
+  client:
+    registerWithEureka: false
+    #fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://server1:7001/eureka/
+spring:
+  application:
+    name: eureka-server
